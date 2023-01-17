@@ -1,4 +1,4 @@
-package com.accesshq;
+package com.accesshq.basecode;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,13 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
-
-public class TestPlaygroundSuite {
+public class TestPlaygroundSuiteDayOne {
 
     @Test
-    public void TestInputSubmit() {
+    public void TestInputSubmit() throws InterruptedException {
         var driver = new ChromeDriver();
         long durationInSecs = 1000;
 
@@ -23,9 +21,13 @@ public class TestPlaygroundSuite {
         driver.findElement(By.id("submit")).click();
 
         By popupMsgLocator = By.className("popup-message");
+
+        /* The Thread.sleep() is not good practice, use WebDriverWait() instead. */
+        //Thread.sleep(1000);
+
         WebElement wait = new WebDriverWait(driver, 10).
             until(ExpectedConditions.visibilityOfElementLocated(popupMsgLocator));
- 
+
         var result = driver.findElement(popupMsgLocator).getText();
 
         Assertions.assertEquals("Hello Francis", result);
