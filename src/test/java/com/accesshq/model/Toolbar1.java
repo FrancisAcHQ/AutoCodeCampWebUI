@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class Menubar {
+public class Toolbar {
 
     private WebElement toolbarElement;
 
-    public Menubar(WebElement toolbarElement) {
+    public Toolbar(WebElement toolbarElement) {
         this.toolbarElement = toolbarElement;
     }
 
